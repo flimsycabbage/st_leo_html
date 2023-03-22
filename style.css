@@ -143,7 +143,6 @@ meter {
     align-items: center;
     padding: 3rem;
     border-radius: 1rem;
-    box-shadow: 1rem 1rem 1rem var(--color-gold-200) !important;
   }
 
   header {
@@ -232,7 +231,7 @@ header {
     var(--color-gold-200),
     var(--color-gold-100)
   );
-  box-shadow: 1rem 1rem 1rem var(--color-gold-200);
+  box-shadow: 0.1rem 1rem 2rem var(--color-gold-200);
   z-index: 10;
   text-align: center;
 }
@@ -245,7 +244,7 @@ header h1 {
   margin-top: 3rem;
   text-align: center;
   background-color: white;
-  box-shadow: 0.1rem 1rem 2rem var(--color-gold-200);
+  box-shadow: 1rem 1rem 1rem var(--color-gold-200) !important;
 }
 
 .logo img {
