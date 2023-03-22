@@ -1,0 +1,299 @@
+/***
+    The new CSS reset - version 1.8.4 (last updated 14.2.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(
+    :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+  ) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+}
+
+:root {
+  font-family: "Playfair Display", serif;
+
+  --color-green-100: hsl(124, 46%, 54%);
+  --color-green-200: hsl(125, 39%, 32%);
+  --color-gold-100: hsl(53, 100%, 85%);
+  --color-gold-200: hsl(53, 100%, 75%);
+  --color-gold-300: hsl(53, 100%, 51%);
+  --color-gold-400: hsl(45, 96%, 48%);
+  --color-purple-100: hsl(287, 100%, 85%);
+  --color-purple-200: hsl(287, 100%, 75%);
+  --color-purple-300: hsl(287, 100%, 65%);
+  --color-purple-400: hsl(287, 53%, 49%);
+  --color-light: hsl(33, 71%, 83%);
+
+  --fw-r: 400;
+  --fw-m: 500;
+  --fw-h: 600;
+
+  --fs-100: 1rem;
+  --fs-200: 1.25rem;
+  --fs-300: 1.5rem;
+  --fs-400: 3rem;
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+    display: grid;
+    place-items: center;
+    padding-top: 3rem;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 50em;
+    align-items: center;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 1rem 1rem 1rem var(--color-gold-200) !important;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  header h1 a {
+    font-size: var(--fs-400);
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    display: block;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  li {
+    padding: 1em;
+  }
+
+  .address {
+    font-size: var(--fs-300);
+    padding-top: 1rem;
+  }
+
+  .mass-times,
+  .first-saturday {
+    font-size: var(--fs-300);
+  }
+
+  .first-saturday {
+    padding-top: 1rem;
+  }
+
+  .times {
+    font-size: var(--fs-200);
+  }
+
+  .schedule {
+    display: grid;
+    text-align: center;
+    gap: 1rem;
+    line-height: 2rem;
+  }
+
+  .about h1 {
+    font-size: var(--fs-400) !important;
+  }
+
+  .about .pastor {
+    font-size: var(--fs-200) !important;
+  }
+
+  .contact {
+    padding: 3rem;
+    font-size: var(--fs-200) !important;
+  }
+}
+
+body {
+  height: 100%;
+  background: linear-gradient(
+      to bottom right,
+      var(--color-purple-400),
+      var(--color-purple-300),
+      var(--color-purple-200),
+      var(--color-purple-100)
+    )
+    fixed;
+}
+
+header {
+  padding: 0.75rem;
+  background: linear-gradient(
+    45deg,
+    var(--color-gold-400),
+    var(--color-gold-300),
+    var(--color-gold-200),
+    var(--color-gold-100)
+  );
+  box-shadow: 1rem 1rem 1rem var(--color-gold-200);
+  z-index: 10;
+  text-align: center;
+}
+
+header h1 {
+  font-size: var(--fs-300);
+}
+
+.container {
+  margin-top: 3rem;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0.1rem 1rem 2rem var(--color-gold-200);
+}
+
+.logo img {
+  display: block;
+  border-radius: 1rem;
+}
+
+.schedule {
+  font-size: var(--fs-200);
+  line-height: 1.75rem;
+}
+
+.times {
+  font-size: var(--fs-100);
+}
+
+.address {
+  padding: 1rem;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 45rem;
+  padding-inline: 0.25rem;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 45rem;
+  padding-block: 3rem;
+  font-size: var(--fs-100);
+}
+
+.about h1 {
+  font-size: var(--fs-300);
+  padding-top: 2rem;
+}
+
+.about .info {
+  padding: 2rem;
+  line-height: 2rem;
+}
+
+.about .pastor {
+  font-size: var(--fs-100);
+  padding-top: 1rem;
+}
