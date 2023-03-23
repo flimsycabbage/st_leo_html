@@ -107,8 +107,10 @@ meter {
 :root {
   font-family: "Playfair Display", serif;
 
-  --color-green-100: hsl(124, 46%, 54%);
-  --color-green-200: hsl(125, 39%, 32%);
+  --color-green-100: hsl(124, 46%, 74%);
+  --color-green-200: hsl(124, 46%, 64%);
+  --color-green-300: hsl(124, 46%, 54%);
+  --color-green-400: hsl(125, 39%, 32%);
   --color-gold-100: hsl(53, 100%, 85%);
   --color-gold-200: hsl(53, 100%, 75%);
   --color-gold-300: hsl(53, 100%, 51%);
@@ -212,14 +214,15 @@ meter {
 
 body {
   height: 100%;
-  background: linear-gradient(
+  /*background: linear-gradient(
       to bottom right,
-      var(--color-purple-400),
-      var(--color-purple-300),
-      var(--color-purple-200),
-      var(--color-purple-100)
+      var(--color-green-400),
+      var(--color-green-300),
+      var(--color-green-200),
+      var(--color-green-100)
     )
-    fixed;
+    fixed;*/
+  background-color: var(--color-purple-400);
 }
 
 header {
@@ -231,7 +234,7 @@ header {
     var(--color-gold-200),
     var(--color-gold-100)
   );
-  box-shadow: 0.1rem 1rem 2rem var(--color-gold-200);
+  /*box-shadow: 0.1rem 1rem 2rem var(--color-gold-100);*/
   z-index: 10;
   text-align: center;
 }
@@ -244,7 +247,7 @@ header h1 {
   margin-top: 3rem;
   text-align: center;
   background-color: white;
-  box-shadow: 1rem 1rem 1rem var(--color-gold-200);
+  box-shadow: 1rem 1rem 1rem var(--c);
 }
 
 .logo img {
