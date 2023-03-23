@@ -222,7 +222,7 @@ body {
       var(--color-green-100)
     )
     fixed;*/
-  background-color: var(--color-purple-100);
+  background-color: var(--color-purple-200);
 }
 
 header {
